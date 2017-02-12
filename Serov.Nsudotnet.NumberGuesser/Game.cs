@@ -13,10 +13,12 @@ namespace Serov.Nsudotnet.NumberGuesser {
         public string UserName { get; set; }
         public int[] GuessHistory { get; } = new int[1000];
         public Result[] ResultHistory { get; } = new Result[1000];
+        public DateTime StartTime { get; private set; }
 
         public Game() {
             var random = new Random();
             _number = random.Next(101);
+            StartTime = DateTime.Now;
         }
 
         public Result CheckGuess(int guess) {

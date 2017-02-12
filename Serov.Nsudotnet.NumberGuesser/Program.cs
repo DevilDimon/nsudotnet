@@ -47,8 +47,9 @@ namespace Serov.Nsudotnet.NumberGuesser {
                         for (var j = 0; j < game.Tries; ++j) {
                             Console.WriteLine("Try #{0}: {1} {2}", j + 1, game.GuessHistory[j], game.ResultHistory[j]);
                         }
+                        var timeSpan = DateTime.Now.Subtract(game.StartTime);
+                        Console.WriteLine("Time elapsed: {0} minute(s)", timeSpan.Minutes);
                         return;
-                        // TODO: Time elapsed
                 }
 
             }
