@@ -11,7 +11,8 @@ namespace Serov.Nsudotnet.NumberGuesser {
 
         public int Tries { get; private set; }
         public string UserName { get; set; }
-        public int[] History { get; } = new int[1000];
+        public int[] GuessHistory { get; } = new int[1000];
+        public Result[] ResultHistory { get; } = new Result[1000];
 
         public Game() {
             var random = new Random();
@@ -19,7 +20,7 @@ namespace Serov.Nsudotnet.NumberGuesser {
         }
 
         public Result CheckGuess(int guess) {
-            History[Tries] = guess;
+            GuessHistory[Tries] = guess;
             Result result;
             if (guess < _number) {
                 result = Result.Less;
@@ -29,6 +30,7 @@ namespace Serov.Nsudotnet.NumberGuesser {
                 result = Result.Equal;
             }
 
+            ResultHistory[Tries] = result;
             Tries++;
             return result;
         }

@@ -45,7 +45,7 @@ namespace Serov.Nsudotnet.NumberGuesser {
                         Console.WriteLine("CORRECT! You have guessed the number!");
                         Console.WriteLine("You have used {0} tries:", game.Tries);
                         for (var j = 0; j < game.Tries; ++j) {
-                            Console.WriteLine("Try #{0}: {1}", j + 1, game.History[j]);
+                            Console.WriteLine("Try #{0}: {1} {2}", j + 1, game.GuessHistory[j], game.ResultHistory[j]);
                         }
                         return;
                         // TODO: Time elapsed
