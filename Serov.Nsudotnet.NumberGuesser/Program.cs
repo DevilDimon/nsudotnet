@@ -59,7 +59,10 @@ namespace Serov.Nsudotnet.NumberGuesser {
 
         private static string[] _scoldingRemarks = {
             "{0}, your guesses are bad and you should feel bad.",
-            "kek {0}"
+            "Your mother, {0}, was a hamster and your father smelt of elderberries!",
+            "You have my pity, {0}.",
+            "I don't like your jerk off name, {0}.",
+            "You, {0}, are an inhuman monster!"
         };
 
         private static string RandomRemark() {
