@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
-using System.Xml.Schema;
 
 namespace JsonSerializer {
     public class JsonSerializer {
@@ -15,7 +14,7 @@ namespace JsonSerializer {
                 return null;
             }
 
-            if (obj.GetType().IsPrimitive) {
+            if (obj.GetType().IsPrimitive || obj is decimal) {
                 if (obj is float) {
                     float value = (float) obj;
                     if (float.IsInfinity(value) || float.IsNaN(value)) {
@@ -30,7 +29,8 @@ namespace JsonSerializer {
                     }
                 }
 
-                return obj.ToString().ToLower();
+
+                return ((IConvertible) obj).ToString(CultureInfo.InvariantCulture).ToLower();
             }
 
             if (obj is string) {
