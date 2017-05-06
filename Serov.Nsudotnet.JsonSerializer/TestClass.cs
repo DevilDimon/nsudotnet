@@ -3,10 +3,12 @@
 namespace JsonSerializer {
     [Serializable]
     public class TestClass {
-        public int i;
-        public string s;
+        public int I;
+        public string S;
 
-        [NonSerialized] public string ignore;
+        [NonSerialized] public string Ignore;
 //        public int[] arrayMember;
+
+        public TestClass2 Test2;
     }
 }
