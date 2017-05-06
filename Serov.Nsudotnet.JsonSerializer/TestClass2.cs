@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace JsonSerializer {
     [Serializable]
@@ -9,5 +10,8 @@ namespace JsonSerializer {
         [NonSerialized] public double NotSerializableDouble;
 
         public string[] Strings;
+        public bool Boolean;
+
+        public Dictionary<string, double> Dict;
     }
 }

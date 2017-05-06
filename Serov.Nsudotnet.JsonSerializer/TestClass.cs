@@ -7,8 +7,8 @@ namespace JsonSerializer {
         public string S;
 
         [NonSerialized] public string Ignore;
-//        public int[] arrayMember;
 
         public TestClass2 Test2;
+        public NonSerializableClass[] NonSerializableObjects;
     }
 }

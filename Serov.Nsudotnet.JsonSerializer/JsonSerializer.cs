@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using System.Xml.Schema;
 
@@ -29,19 +30,40 @@ namespace JsonSerializer {
                     }
                 }
 
-                return obj.ToString();
+                return obj.ToString().ToLower();
             }
 
             if (obj is string) {
-                return $"\"{obj}\"";
+                string objString = (string) obj;
+                return $"\"{objString.Replace("\"", "\\\"")}\"";
             }
 
             StringBuilder sb;
-            if (obj.GetType().IsArray) {
+            if (obj is IDictionary) {
+                sb = new StringBuilder();
+                sb.Append("{");
+                var hasElements = false;
+                var dictionary = (IDictionary) obj;
+                foreach (var key in dictionary.Keys) {
+                    var serialized = Serialize(dictionary[key]);
+                    if (serialized == null) continue;
+                    hasElements = true;
+                    sb.AppendFormat("\"{0}\":{1},", key, Serialize(dictionary[key]));
+                }
+                if (hasElements) {
+                    sb.Remove(sb.Length - 1, 1);
+                }
+                sb.Append("}");
+                return sb.ToString();
+            }
+
+            if (obj is IEnumerable) {
                 sb = new StringBuilder();
                 sb.Append("[");
                 var hasElements = false;
-                foreach (object item in (object[]) obj) {
+                foreach (var item in (IEnumerable) obj) {
+                    var serialized = Serialize(item);
+                    if (serialized == null) continue;
                     sb.AppendFormat("{0},", Serialize(item));
                     hasElements = true;
                 }
