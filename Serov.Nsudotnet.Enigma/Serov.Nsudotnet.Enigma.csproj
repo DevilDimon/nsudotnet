@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArgumentParser.cs" />
+    <Compile Include="Crypter.cs" />
+    <Compile Include="Decrypter.cs" />
+    <Compile Include="Encrypter.cs" />
+    <Compile Include="EncryptionMethod.cs" />
     <Compile Include="Enigma.cs" />
+    <Compile Include="EnigmaException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
