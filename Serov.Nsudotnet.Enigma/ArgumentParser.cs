@@ -13,7 +13,7 @@ namespace Serov.Nsudotnet.Enigma {
                     return new Encrypter(args[1], args[3], ParseMethod(args[2]));
                 case "decrypt":
                     if (args.Length != 5 || !args[3].EndsWith(".txt")) throw new ArgumentException();
-                    return new Decrypter(args[1], args[3], args[4], ParseMethod(args[2]));
+                    return new Decrypter(args[1], args[4], args[3], ParseMethod(args[2]));
                 default: throw new ArgumentException();
             }
         }

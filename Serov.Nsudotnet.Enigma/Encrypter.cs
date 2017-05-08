@@ -17,8 +17,7 @@ namespace Serov.Nsudotnet.Enigma {
             try {
                 using (var inputStream = new FileStream(InputFileName, FileMode.Open))
                 using (var keyStream = new FileStream(InputFileName.Replace(".txt", ".key.txt"), FileMode.Create))
-                using (var outputStream = new FileStream(OutputFileName, FileMode.Create))
-                {
+                using (var outputStream = new FileStream(OutputFileName, FileMode.Create)) {
                     switch (Method) {
                         case EncryptionMethod.Aes: {
                             using (var aes = Aes.Create()) {
@@ -53,7 +52,10 @@ namespace Serov.Nsudotnet.Enigma {
                 }
             }
             catch (FileNotFoundException e) {
-                throw new EnigmaException($"encrypt: file not found: {InputFileName}");
+                throw new EnigmaException($"encrypt: file not found: {e.FileName}");
+            }
+            catch (IOException e) {
+                throw new EnigmaException($"encrypt: {e.Message}");
             }
         }
 

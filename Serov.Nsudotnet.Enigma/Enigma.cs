@@ -17,7 +17,7 @@ namespace Serov.Nsudotnet.Enigma {
         }
 
         public static void PrintUsage() {
-            Console.WriteLine("Usage: enigma.exe {encrypt|decrypt} <input file> {aes|des|rc2} [keyfile] <output file>");
+            Console.WriteLine("Usage: enigma.exe {encrypt|decrypt} <input file> {aes|des|rc2|rijndael} [keyfile] <output file>");
         }
     }
 }
