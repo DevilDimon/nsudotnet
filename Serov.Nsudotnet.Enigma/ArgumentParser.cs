@@ -8,9 +8,11 @@ namespace Serov.Nsudotnet.Enigma {
             }
 
             switch (args[0]) {
-                case "encrypt": return new Encrypter(args[1], args[3], ParseMethod(args[2]));
+                case "encrypt":
+                    if (!args[1].EndsWith(".txt")) throw new ArgumentException();
+                    return new Encrypter(args[1], args[3], ParseMethod(args[2]));
                 case "decrypt":
-                    if (args.Length != 5) throw new ArgumentException();
+                    if (args.Length != 5 || !args[3].EndsWith(".txt")) throw new ArgumentException();
                     return new Decrypter(args[1], args[3], args[4], ParseMethod(args[2]));
                 default: throw new ArgumentException();
             }
@@ -22,6 +24,7 @@ namespace Serov.Nsudotnet.Enigma {
                 case "aes": return EncryptionMethod.Aes;
                 case "des": return EncryptionMethod.Des;
                 case "rc2": return EncryptionMethod.Rc2;
+                case "rijndael": return EncryptionMethod.Rijndael;
                 default: throw new ArgumentException();
             }
         }
