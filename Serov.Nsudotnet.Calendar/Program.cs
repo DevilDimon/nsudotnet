@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 
 namespace Serov.Nsudotnet.Calendar {
     internal class Program {
@@ -15,7 +13,7 @@ namespace Serov.Nsudotnet.Calendar {
             }
 
             var calendar = new Calendar(dateTime);
-            Console.WriteLine(calendar);
+            calendar.Print();
         }
     }
 }
