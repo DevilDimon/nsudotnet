@@ -17,7 +17,7 @@ namespace Serov.Nsudotnet.NumberGuesser {
                 while (true) {
                     var input = Console.ReadLine();
 
-                    if ("q".Equals(input)) {
+                    if ("q" == input) {
                         Console.WriteLine("I am terribly sorry. I'll see myself out.");
                         return;
                     }
@@ -48,7 +48,7 @@ namespace Serov.Nsudotnet.NumberGuesser {
                             Console.WriteLine("Try #{0}: {1} {2}", j + 1, game.GuessHistory[j], game.ResultHistory[j]);
                         }
                         var timeSpan = DateTime.Now.Subtract(game.StartTime);
-                        Console.WriteLine("Time elapsed: {0} minute(s)", timeSpan.Minutes);
+                        Console.WriteLine("Time elapsed: {0:hh\\:mm\\:ss}", timeSpan);
                         return;
                 }
 
