@@ -48,13 +48,10 @@ namespace Serov.Nsudotnet.NumberGuesser {
                             Console.WriteLine("Try #{0}: {1} {2}", j + 1, game.GuessHistory[j], game.ResultHistory[j]);
                         }
                         var timeSpan = DateTime.Now.Subtract(game.StartTime);
-                        Console.WriteLine("Time elapsed: {0:hh\\:mm\\:ss}", timeSpan);
+                        Console.WriteLine("Time elapsed: {0} minute(s)", Math.Truncate(timeSpan.TotalMinutes));
                         return;
                 }
-
             }
-
-
         }
 
         private static string[] _scoldingRemarks = {
