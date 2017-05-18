@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Security.Permissions;
 using System.Text;
 
 namespace Serov.Nsudotnet.Enigma {

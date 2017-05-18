@@ -71,7 +71,7 @@ namespace Serov.Nsudotnet.Enigma {
 
             algorithm.Key = key;
             algorithm.IV = iv;
-            var transform = algorithm.CreateDecryptor();
+            using (var transform = algorithm.CreateDecryptor())
             using (var cryptoStream = new CryptoStream(inputStream, transform, CryptoStreamMode.Read)) {
                 cryptoStream.CopyTo(outputStream);
             }
